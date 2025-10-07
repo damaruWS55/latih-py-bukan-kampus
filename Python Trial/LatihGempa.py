@@ -128,19 +128,13 @@ sm.set_array([])
 scatter.figure.colorbar(sm, label='Magnitudo (SR)', ax=plt.gca())
 
 plt.grid(True, linestyle='--', alpha=0.6)
-plt.show() # Perintah SHOW untuk visualisasi pertama
-
-
-# VISUALISASI 2: Magnitudo Aktual vs. Prediksi (Kualitas Model RFR)
-# Ini adalah visualisasi dari Random Forest Regression
+plt.show() 
 
 plt.figure(figsize=(10, 6))
 
-# Scatter plot: Nilai Aktual (X) vs. Nilai Prediksi (Y)
 plt.scatter(y_test_reg, y_pred_reg, alpha=0.6, label='Titik Data Prediksi')
 
-# Garis ideal y=x (Garis di mana Prediksi SAMA dengan Aktual)
-# Jika titik-titik plot mendekati garis ini, berarti model sangat akurat
+
 plt.plot([y_test_reg.min(), y_test_reg.max()], 
          [y_test_reg.min(), y_test_reg.max()], 
          '--r', linewidth=2, label='Prediksi Ideal')
@@ -153,4 +147,5 @@ plt.grid(True)
 plt.show() 
 
 print("\nRINGKASAN DATA VISUALISASI (Top 5 Gempa Terjauh, Terbesar, dan Terdalam)")
+
 print(df_visual[['tgl', 'mag', 'depth', 'jarak_dari_pusat_km', 'kategori_kerusakan', 'kategori_mag_normal']].head())
